@@ -49,7 +49,7 @@ function showLoadingAndOpen(url, windowName) {
   }
   function openEmotionWindow2() {
     showLoadingAndOpen(
-      "http://127.0.0.1:5502/frontend/audio_page.html",
+      "https://audio-beryl.vercel.app/",
       "EmotionAnalyzerAudio"
     );
   }
