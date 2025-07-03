@@ -18,6 +18,36 @@
     }
 
 
+
+function showLoadingAndOpen(url, windowName) {
+  const overlay = document.getElementById('loadingOverlay');
+  overlay.classList.remove('hidden');
+
+
+  setTimeout(() => {
+    const width = 712;
+    const height = 550;
+    const left = (window.screen.width - width) / 2;
+    const top = (window.screen.height - height) / 2;
+
+    window.open(
+      url,
+      windowName,
+      `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
+    );
+
+    overlay.classList.add('hidden');
+
+  }, 1500);
+}
+
+  function openEmotionWindow() {
+    showLoadingAndOpen(
+      "https://text-lime-eight.vercel.app/",
+      "EmotionAnalyzerText"
+    );
+  }
+
     // Fix 2: Bubble Pop
     document.addEventListener('click', function(e) {
       const bubble = document.createElement('div');
