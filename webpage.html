@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emotion Analyzer</title>
+  <link rel="stylesheet" href="webpage.css">
+</head>
+<body>
+
+  <div class="emoji-layer" id="emojiLayer"></div>
+
+  <div class="nav-bar">
+    <div class="summary-container">
+      <div class="summary-btn">Summary</div>
+      <div class="summary-tooltip">Find the real intentions behind the word and blah blah blah...</div>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-item">MyProfile</div>
+      <div class="nav-item">Features</div>
+      <div class="nav-item">Feedback</div>
+      <div class="nav-item">Home</div>
+      <div class="menu-icon" onclick="toggleMenu()">⋮</div>
+    </div>
+  </div>
+
+  <div class="side-menu" id="sideMenu">
+    <div class="side-close" onclick="toggleMenu()">✖</div>
+    <ul>
+        <li class="side-option">Terms & Conditions</li>
+        <li class="side-option">FAQs</li>
+        <li class="side-option">Help & Forums</li>
+    </ul>
+  </div>
+
+
+  <main class="main-content" id="mainContent">
+    <h1 class="slogan">
+      <span class="highlight">Analyze Text</span>, Understand Emotion.<br>
+      <span class="highlight">Analyze Audio</span>, Understand Emotion.
+    </h1>
+    <div class="action-buttons">
+      <a><button class="btn btn-text" onclick="openEmotionWindow()">Text</button></a>
+      <a><button class="btn btn-audio" onclick="openEmotionWindow2()">Audio</button></a>
+    </div>
+  </main>
+
+  <div id="contributors">
+    <div class="contributors-title">Contributors</div>
+    <div class="contrib-grid">
+      <div class="contrib-card">
+        <img src="https://i.pinimg.com/736x/eb/0a/c0/eb0ac0a7c8a1acb8f9bbe87c67f5e7b4.jpg" alt="Gaurav Thapa" />
+        <h4>Gaurav Thapa</h4><p>UI Designer</p>
+        <div class="socials">
+          <a href="#">🐱‍👤</a> <a href="#">💼</a>
+        </div>
+      </div>
+      <div class="contrib-card">
+        <img src="https://i.pinimg.com/736x/1f/97/c2/1f97c2b126afc0cc179294ca7e29f74c.jpg" alt="Kaushik Rathore" />
+        <h4>Kaushik Rathore</h4><p>Frontend Dev</p>
+        <div class="socials">
+          <a href="#">🐦</a> <a href="#">📷</a>
+        </div>
+      </div>
+      <div class="contrib-card">
+        <img src="https://i.pinimg.com/736x/17/76/7e/17767eb9ed5b8ccd673d2f10cb548a69.jpg" alt="Gopal Kumar" />
+        <h4>Gopal Kumar</h4><p>ML Engineer</p>
+        <div class="socials">
+          <a href="#">🌐</a> <a href="#">📘</a>
+        </div>
+      </div>
+      <div class="contrib-card">
+        <img src="https://i.pinimg.com/736x/84/9c/bd/849cbd398ca11975638e417dc4eab8b9.jpg" alt="Roshni Vishwakarma" />
+        <h4>Roshni Vishwakarma</h4><p>API Architect</p>
+        <div class="socials">
+          <a href="#">🐙</a> <a href="#">🖇️</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="social-icon" data-link="https://instagram.com" onclick="window.open('https://instagram.com','_blank')">📷</div>
+    <div class="social-icon" data-link="https://linkedin.com" onclick="window.open('https://linkedin.com','_blank')">💼</div>
+    <div class="social-icon" data-link="https://x.com" onclick="window.open('https://x.com','_blank')">✖️</div>
+  </footer>
+
+  <div id="loadingOverlay" class="loading-overlay hidden">
+  <div class="spinner"></div>
+  </div>
+
+  <script src="webpage.js"></script>
+</body>
+</html>

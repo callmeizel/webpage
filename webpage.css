@@ -1,0 +1,297 @@
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; font-family:'Segoe UI',sans-serif; scroll-behavior:smooth; }
+
+    /* Fix 1: Vibrant Abstract Background */
+    body::before {
+      content:''; position:fixed; top:0; left:0;
+      width:100%; height:100%; z-index:-3;
+      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #fbc2eb, #fad0c4, #ff9a9e);
+      background-size:1600% 1600%;
+      animation:vibrantFlow 18s ease-in-out infinite;
+    }
+    @keyframes vibrantFlow {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    .emoji-layer { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2; pointer-events:none; }
+    .emoji {
+      position:absolute; font-size:22px; opacity:0.12;
+      animation:floatUp 20s linear infinite;
+    }
+    @keyframes floatUp {
+      0%{transform:translateY(100vh)}
+      100%{transform:translateY(-10vh)}
+    }
+
+    /* Fix 3: Transparent Nav Background */
+    .nav-bar {
+      position:fixed; top:0; left:0; width:100%;
+      padding:16px 32px;
+      display:flex; justify-content:space-between; align-items:center;
+      z-index:10;
+      background-color: transparent;
+      backdrop-filter: blur(4px);
+    }
+
+    .summary-container { position:relative; }
+    .summary-btn {
+      padding:8px 14px; background:rgba(255,255,255,0.3);
+      border-radius:12px; backdrop-filter:blur(5px);
+      cursor:pointer; transition:0.3s;
+    }
+    .summary-tooltip {
+      position:absolute; top:120%; left:0;
+      background:#ffffffdd; padding:12px; width:260px;
+      border-radius:10px; opacity:0; pointer-events:none;
+      transform:translateY(10px); transition:0.4s;
+    }
+    .summary-container:hover .summary-tooltip {
+      opacity:1; transform:translateY(0); pointer-events:auto;
+    }
+
+    .hidden {
+  display: none !important;
+}
+
+    .spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #ff9a9e,
+    #fad0c4,
+    #fbc2eb,
+    #a18cd1,
+    #fbc2eb,
+    #fad0c4,
+    #ff9a9e
+  );
+  animation: spin 1.2s linear infinite;
+  mask: radial-gradient(circle at center, transparent 44%, black 45%);
+  -webkit-mask: radial-gradient(circle at center, transparent 44%, black 45%);
+  box-shadow: 0 0 18px rgba(255, 0, 102, 0.4);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-overlay {
+  position: fixed;
+  margin-left: -15px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+}
+
+    .nav-menu {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .nav-menu.hidden-slide {
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+    .nav-item {
+      padding:8px 14px; background:rgba(255,255,255,0.3);
+      border-radius:12px; backdrop-filter:blur(5px);
+      cursor:pointer; transition:transform 0.3s ease;
+    }
+    .nav-item:hover {
+      transform: scale(1.1);
+    }
+
+    .menu-icon { font-size:26px; color:#444; cursor:pointer; }
+
+    /* Fix 4: Stylish Side Menu */
+    .side-menu 
+    {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100%;
+        background: #ffffff; /* plain white */
+        box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 40px 20px;
+        z-index: 20;
+        transition: right 0.4s ease;
+    }
+
+    .side-menu.open {
+        right: 0;
+    }
+
+    .side-close {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .side-menu ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 40px;
+    }
+
+    .side-option {
+        background: rgba(0, 0, 0, 0.04);
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin-bottom: 14px;
+        cursor: pointer; /* Fix 3: cursor appears on hover */
+        transition: background 0.3s ease;
+    }
+
+    .side-option:hover {
+        background: rgba(249, 1, 42, 0.08);
+    }
+
+
+    .main-content 
+    {
+        margin-top: 36vh;
+        text-align: center;
+        padding: 0 20px;
+        transition: transform 0.8s ease;
+        font-size: 20px; /* ← Increased font size as per fix */
+    }
+
+
+    .slogan {
+      font-size:2rem; line-height:1.5; color:#111;
+      margin-bottom:20px;
+    }
+    .highlight {
+      background:linear-gradient(90deg, #ff006e, #8338ec);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip: text;
+      font-weight:bold; font-size:2.2rem;
+    }
+
+    .action-buttons {
+      display:flex; justify-content:center; gap:38px;
+    }
+    .btn {
+      padding:14px 28px; font-size:1rem; border:none;
+      border-radius:30px; cursor:pointer;
+      transition:transform 0.4s ease;
+    }
+    .btn-text { background:#ff9a8b; color:#fff; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);}
+    .btn-audio { background:#8ec5fc; color:#fff; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1); }
+    .btn:hover { transform:scale(1.12); }
+
+   .footer 
+    {
+        position: relative;
+        margin-top: 40px; /* Increased from 10px to 40px */
+        padding-bottom: 18px;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+    }
+
+
+
+    /* Fix 6: Social icons with links and no glitch */
+    .social-icon {
+      font-size:24px; cursor:pointer; position:relative;
+      transition:transform 0.3s ease;
+    }
+    .social-icon::after {
+      content:attr(data-link);
+      position:absolute; top:-28px; left:50%;
+      transform:translateX(-50%) translateY(10px);
+      background:#fff; padding:4px 8px;
+      border-radius:6px; font-size:12px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.2);
+      opacity:0; transition:opacity 0.4s ease, transform 0.4s ease;
+      white-space:nowrap;
+    }
+    .social-icon:hover::after {
+      opacity:1; transform:translateX(-50%) translateY(0);
+    }
+    .social-icon:hover {
+      transform:scale(1.2);
+    }
+
+    /* Fix 5: Push Contributors Down */
+    #contributors 
+    {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(4px);
+        margin: 52vh auto 20px auto; /* Brought up, less scroll */
+        padding: 30px;
+
+        width: 70%; /* resized to better fit 4 profiles */
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .contributors-title 
+    {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 24px;
+        color: #222;
+        background: linear-gradient(90deg, #ff006e, #ec384d);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .contrib-grid {
+      display:flex; justify-content:center; flex-wrap:wrap; gap:30px;
+    }
+    .contrib-card {
+      text-align:center;
+      width:180px;
+    }
+    .contrib-card img {
+      width:100px; height:100px;
+      border-radius:50%; object-fit:cover;
+      box-shadow:0 2px 8px rgba(0,0,0,0.15);
+    }
+    .contrib-card h4 { margin:10px 0 4px; font-size:1rem; }
+    .contrib-card p { font-size:0.85rem; color:#666; margin-bottom:8px; }
+    .contrib-card .socials a {
+      margin:0 6px; font-size:16px; text-decoration:none;
+      color:#444;
+    }
+
+    /* Fix 2: Enhanced Bubble Animation */
+    .click-bubble {
+      position: fixed;
+      width: 18px;
+      height: 18px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+      animation: bubbleAnim 0.4s ease-out forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    @keyframes bubbleAnim {
+      0% { transform: scale(0.6); opacity: 0.9; }
+      100% { transform: scale(2); opacity: 0; }
+    }
