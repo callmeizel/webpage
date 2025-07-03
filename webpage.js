@@ -18,42 +18,6 @@
     }
 
 
-function showLoadingAndOpen(url, windowName) {
-  const overlay = document.getElementById('loadingOverlay');
-  overlay.classList.remove('hidden');
-
-
-  setTimeout(() => {
-    const width = 712;
-    const height = 550;
-    const left = (window.screen.width - width) / 2;
-    const top = (window.screen.height - height) / 2;
-
-    window.open(
-      url,
-      windowName,
-      `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
-    );
-
-    overlay.classList.add('hidden');
-
-  }, 1500);
-}
-
-  function openEmotionWindow() {
-    showLoadingAndOpen(
-      "http://127.0.0.1:5500/text_ml%20+%20frontend/front%20end/final_text_page.html",
-      "EmotionAnalyzerText"
-    );
-  }
-
-  function openEmotionWindow2() {
-    showLoadingAndOpen(
-      "http://127.0.0.1:5502/frontend/audio_page.html",
-      "EmotionAnalyzerAudio"
-    );
-  }
-
     // Fix 2: Bubble Pop
     document.addEventListener('click', function(e) {
       const bubble = document.createElement('div');
