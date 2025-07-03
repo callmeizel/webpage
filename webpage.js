@@ -47,6 +47,12 @@ function showLoadingAndOpen(url, windowName) {
       "EmotionAnalyzerText"
     );
   }
+  function openEmotionWindow2() {
+    showLoadingAndOpen(
+      "http://127.0.0.1:5502/frontend/audio_page.html",
+      "EmotionAnalyzerAudio"
+    );
+  }
 
     // Fix 2: Bubble Pop
     document.addEventListener('click', function(e) {
